@@ -1,12 +1,25 @@
 {
   "name": "node-qetag",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A multi-thread utility of NodeJS, calculate the hash value of the file on the qiniu cloud storage (also the etag value when the file is downloaded).",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./example"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BugKun/node-qetag.git"
+  },
   "author": "nopast",
+  "bugs": {
+    "url": "https://github.com/BugKun/node-qetag/issues"
+  },
+  "homepage": "https://github.com/BugKun/node-qetag",
+  "keywords": [
+    "node",
+    "qetag",
+    "node-qetag"
+  ],
   "dependencies": {
     "crypto": "^1.0.1",
     "promise.map": "0.0.2"

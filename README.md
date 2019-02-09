@@ -1,5 +1,5 @@
 # node-qetag
-A multi-thread utility of NodeJS, calculate the hash value of the file on the qiniu cloud storage (also the etag value when the file is downloaded).
+A multi-thread utility of NodeJS, which calculate the hash value of the file on the qiniu cloud storage (also the etag value when the file is downloaded).
 
 ## Base
 Base on the <a href="https://github.com/qiniu/qetag" target="__blank">qetag</a>, which is the official version.
