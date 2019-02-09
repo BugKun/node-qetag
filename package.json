@@ -1,0 +1,14 @@
+{
+  "name": "node-qetag",
+  "version": "1.0.0",
+  "description": "A multi-thread utility of NodeJS, calculate the hash value of the file on the qiniu cloud storage (also the etag value when the file is downloaded).",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./example"
+  },
+  "author": "nopast",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "promise.map": "0.0.2"
+  }
+}
