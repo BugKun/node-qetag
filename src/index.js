@@ -1,20 +1,16 @@
 const path = require('path'),
-    qetagPath = path.join(__dirname, './qetag.js'),
-    childProcess = require('child_process'),
-    promiseMap = require('promise.map'),
-    os = require('os'),
-    threads = os.cpus().length;
+    ThreadPool = require('./ThreadPool'),
+    qetagPath = path.join(__dirname, './qetag.js');
 
-
-
-function factory(buffer) {
-    const qetag = childProcess.fork(qetagPath);
-
+module.exports = (buffers, threads) => {
     return new Promise((resolve, reject) => {
-        qetag.on('message', resolve);
-        qetag.on('error', reject);
-        qetag.send(buffer);
+        const threadPool = new ThreadPool(qetagPath, threads);
+        threadPool
+            .start(buffers)
+            .then(result => {
+                threadPool.close();
+                resolve(result);
+            })
+            .catch(reject)
     })
 }
-
-module.exports = (buffers, concurrency = (threads > 1)? threads - 1 : 1) => promiseMap(buffers, factory, concurrency)

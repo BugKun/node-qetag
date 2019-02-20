@@ -80,9 +80,8 @@ function getEtag(buffer, callback){
 	}
 }
 
-process.on('message', (buffer) => {
-    getEtag(buffer, (hash) => {
-        process.send(hash);
-        process.nextTick(() => process.exit());
-    })
-})
+process.on('message', (buffer) =>
+	getEtag(buffer, (hash) => 
+		process.send(hash)
+	)
+)

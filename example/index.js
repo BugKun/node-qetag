@@ -3,7 +3,7 @@ const qetag = require('../src/'),
     path = require('path');
 
 
-fileList(path.join(__dirname, "./inputs"))
+fileList(path.join(__dirname, './inputs'))
     .then(list => {
         qetag(list)
             .then(results => {
