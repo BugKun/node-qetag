@@ -46,6 +46,9 @@ class ThreadPool {
     }
 
     start(buffers) {
+        if(buffers.length < 1) {
+            return new Promise((resolve) => resolve([]));
+        }
         if(this.threadPool.length === 0) {
             if(buffers.length < this.threads) this.threads = buffers.length;
             this.warmup();
@@ -58,9 +61,10 @@ class ThreadPool {
     }
 
     close() {
-        for(let i in this.threadPool) {
+        for(let i = 0; i < this.threadPool.length; i++) {
             this.threadPool[i].exit();
         }
+        this.idlePool = [];
     }
 }
 

@@ -7,9 +7,9 @@ module.exports = (buffers, threads) => {
         const threadPool = new ThreadPool(qetagPath, threads);
         threadPool
             .start(buffers)
-            .then(result => {
+            .then(results => {
                 threadPool.close();
-                resolve(result);
+                resolve(results);
             })
             .catch(reject)
     })
